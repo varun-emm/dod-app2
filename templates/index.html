@@ -91,7 +91,23 @@
         #sentence {
             opacity: 1;
             transition: opacity 0.5s ease-in-out; /* Smooth transition */
+
         }
+        /* Restart Game Link Styling */
+        #restart {
+            font-family: 'Rockwell', sans-serif;
+            font-size: 12px; /* 50% smaller than other text */
+            color: white;
+            text-decoration: underline; /* Underlined */
+            cursor: pointer;
+            margin-bottom: 20px; /* Add space from the buttons */
+        }
+
+        #restart:hover {
+            color: #ccc;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -107,6 +123,9 @@
         </button>
         <button class="button" id="next">Next</button>
     </div>
+
+    <a id="restart" href="/restart">Restart Game</a>
+
 
     <script>
         let currentIndex = 0;
@@ -137,5 +156,6 @@
         });
 
     </script>
+
 </body>
 </html>

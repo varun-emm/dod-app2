@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, redirect, url_for
 import random
 
 app = Flask(__name__)
@@ -59,6 +59,15 @@ current_index = 0  # Starting index
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/restart')
+def restart():
+    global shuffled_sentences, current_index
+    shuffled_sentences = sentences[:]  # Reset to original list
+    random.shuffle(shuffled_sentences)  # Shuffle again
+    current_index = 0  # Reset index
+    return redirect(url_for('index'))  # Redirect to the main page
+
 
 # API to handle sentence changes
 @app.route('/get_sentence/<int:index>')
